@@ -1,0 +1,36 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    {{ category_phone.slug }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    {% for catalog in category_phone.catalog.all %}
+    {% for category_phone in catalog.phone_catalog.all %}
+    <a href="{{ category_phone.get_absolute_url }}">
+        <p>{{ category_phone.slug }}</p>
+    </a>
+    {% endfor %}
+        {% for product_phone in category_phone.phone.all %}
+            <p>
+                {{ product_phone.title }}
+                {{ product_phone.slug }}
+            </p>
+        {% endfor %}
+    {% endfor %}
+
+
+    <!-- ======================================================== -->
+    
+    {% for apple in category_phone.apple_phone.all %}
+        <p>{{ apple.title }}</p>
+    {% endfor %}
+    {% for xiaomi in category_phone.xiaomi_phone.all %}
+        <p>{{ xiaomi.title }}</p>
+    {% endfor %}
+    <!-- {{ category_phone.slug }}
+
+    {% for phone_catalog in category_phone.phone_catalog.all %}
+        <a href="{{ phone_catalog.get_absolute_url }}">Read</a>
+    {% endfor %} -->
+{% endblock %}

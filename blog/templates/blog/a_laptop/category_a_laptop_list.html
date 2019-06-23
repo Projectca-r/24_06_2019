@@ -1,0 +1,13 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    {{ Category_a_laptop.title }}
+{% endblock %}
+
+{% block content %}
+    {% for category_a_laptop in category_a_laptops %}
+        <a href="{{ category_a_laptop.get_absolute_url }}">
+            <p>{{ category_a_laptop.slug }}</p>
+        </a>        
+    {% endfor %}
+{% endblock %}

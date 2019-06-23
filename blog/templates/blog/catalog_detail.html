@@ -1,0 +1,71 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    {{ catalog.title }}
+{% endblock %}
+
+{% block content %}
+    
+<!-- -------------- TV -------------------- -->
+        {% for category_tv in catalog.tv_catalog.all %}
+        <a href="{{ category_tv.get_absolute_url }}">
+            <p>{{ category_tv.slug }}</p>
+        </a>
+        {% endfor %}
+        
+        {% for category_tv in catalog.tv_catalog.all %}
+        {% for lg in category_tv.lg_tv.all %}
+        <p></p><img src="{{ lg.image.url }}" alt="">
+        <p>{{ lg.title }}</p>
+        <p>{{ lg.slug }}</p>
+        <p>{{ lg.screen }}</p>
+        <p>{{ lg.connect }}</p>
+        <p> {{ lg.size }} </p>
+        <p> {{ lg.decimal }} </p>
+        
+        {% endfor %}
+        {% endfor %}
+        
+
+    <!-- ---------------- Phone ------------ -->
+    {% for category_phone in catalog.phone_catalog.all %}
+    <a href="{{ category_phone.get_absolute_url }}">
+        <p>{{ category_phone.slug }}</p>
+    </a>
+    {% endfor %}
+
+    {% for category_phone in catalog.phone_catalog.all %}
+    {% for samsung in category_phone.samsung_phone.all %}
+        <img src="{{ samsung.image.url }}" alt="">
+        <p>{{ samsung.title }}</p>
+        <p>{{ samsung.slug }}</p>
+        <p> {{ samsung.camera }} </p>
+        <p> {{ samsung.memory }} </p>
+        <p> {{ samsung.connect }} </p>
+        <p> {{ samsung.decimal }} </p>
+    
+    {% endfor %}
+    {% endfor %}
+
+    <!-- --------------------- a_laptop ----------------- -->
+    {% for category_a_laptop in catalog.a_laptop_catalog.all %}
+    <a href="{{ category_a_laptop.get_absolute_url }}">
+        <p>{{ category_a_laptop.slug }}</p>
+    </a>
+    {% endfor %}
+
+    {% for category_a_laptop in catalog.a_laptop_catalog.all %}
+    {% for mac_os in category_a_laptop.mac_os_a_laptop.all %}
+        <img src="{{ mac_os.image.url }}" alt="">
+        <p>{{ mac_os.title }}</p>
+        <p> {{ mac_os.touch }} </p>
+        <p> {{ mac_os.weight }} </p>
+        <p> {{ mac_os.memory }} </p>
+        <p> {{ mac_os.thickness }} </p>
+        <p> {{ mac_os.ssd }} </p>
+        <p> {{ mac_osdecimal }} </p>
+        <!-- <button type="submit" class="btn btn-auccess btn-buy">В карзину</button> -->
+    {% endfor %}
+    {% endfor %}
+    
+{% endblock %}

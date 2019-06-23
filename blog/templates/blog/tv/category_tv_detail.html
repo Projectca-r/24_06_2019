@@ -1,0 +1,45 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+{{ category_tv.slug }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<!-- ------------ TV --------------------- -->
+{% for catalog in category_tv.catalog.all %}
+{% for category_tv in catalog.tv_catalog.all %}
+<a href="{{ category_tv.get_absolute_url }}">
+    <p>{{ category_tv.slug }}</p>
+</a>
+{% endfor %}
+{% for product_tv in category_tv.tv.all %}
+<p>{{ product_tv.title }}
+    {{ product_tv.slug }}</p>
+
+
+
+<button type="button" class="btn btn-outline-success">
+    <form action="{% url 'cart_create_url' %}" method="POST">
+        {% csrf_token %}
+        Success
+    </form>
+</button>
+
+
+
+{% endfor %}
+
+{% endfor %}
+
+<!-- -------------- TV ----------------- -->
+{% for samsung_tv in category_tv.samsung_tv_tv.all %}
+<p>{{ samsung_tv.title }}</p>
+{% endfor %}
+{% for sony in category_tv.sony_tv.all %}
+<p>{{ sony.title }}</p>
+{% endfor %}
+{% for panasonic in category_tv.panasonic_tv.all %}
+<p>{{ panasonic.title }}</p>
+{% endfor %}
+
+{% endblock %}

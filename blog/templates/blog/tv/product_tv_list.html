@@ -1,0 +1,15 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    {{ Product_TV.title }}
+{% endblock %}
+
+{% block content %}
+    {% for product_tv in product_tvs %}
+    <div>
+        <a href="{{ product_tv.get_absolute_url }}">
+            <p>{{ product_tv.slug }}</p>
+        </a>
+    </div>
+    {% endfor %}
+{% endblock %}

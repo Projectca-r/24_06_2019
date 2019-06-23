@@ -1,0 +1,20 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    {{ Catalog.title }}
+{% endblock %}
+
+{% block content %}
+    {% for catalog in catalogs %}
+    <div>
+        <a href="{{ catalog.get_absolute_url }}">
+            <img src="{{ catalog.image.url }}" width="250" height="200" alt="">
+        </a>
+    </div>
+    <!-- <p>
+        <a href="{{ category_tv.category_tv_list_url }}">
+            {{ category_tv.slug }}
+        </a>
+    </p> -->
+    {% endfor %}
+{% endblock %}

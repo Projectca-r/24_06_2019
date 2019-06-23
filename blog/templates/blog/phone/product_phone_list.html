@@ -1,0 +1,15 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    {{ Product_Phone.title }}
+{% endblock %}
+
+{% block content %}
+    {% for product_phone in product_phones %}
+    <div>
+        <a href="{{ product_phone.get_absolute_url }}">
+            <p>{{ product_phone.slug }}</p>
+        </a>
+    </div>
+    {% endfor %}
+{% endblock %}
