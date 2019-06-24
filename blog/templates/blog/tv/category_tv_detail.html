@@ -19,7 +19,7 @@
 
 
 <button type="button" class="btn btn-outline-success">
-    <form action="{% url 'cart_create_url' %}" method="POST">
+    <form action="{% url 'cart_home_url' %}" method="POST">
         {% csrf_token %}
         Success
     </form>
