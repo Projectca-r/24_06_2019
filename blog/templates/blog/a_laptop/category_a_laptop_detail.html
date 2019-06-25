@@ -13,8 +13,14 @@
 </a>
 {% endfor %}
     {% for product_a_laptop in category_a_laptop.a_laptop.all %}
-        <p>{{ product_a_laptop.title }}</p>
-        <p>{{ product_a_laptop.slug }}</p>
+    <img src="{{ product_a_laptop.image.url }}" alt="">
+    <p>{{ product_a_laptop.decimal }}</p>    
+    <p>{{ product_a_laptop.weight }}</p>
+    <p>{{ product_a_laptop.touch }}</p>
+    <p>{{ product_a_laptop.memory }}</p>
+    <p>{{ product_a_laptop.thickness }}</p>
+    <p>{{ product_a_laptop.slug }}</p>
+    <p>{{ product_a_laptop.title }}</p>
     {% endfor %}
     
 {% endfor %}

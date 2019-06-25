@@ -12,10 +12,14 @@
     </a>
     {% endfor %}
         {% for product_phone in category_phone.phone.all %}
-            <p>
-                {{ product_phone.title }}
-                {{ product_phone.slug }}
-            </p>
+        <img src="{{ product_phone.image.url }}" alt="">
+        <p>{{ product_phone.decimal }}</p>    
+        <p>{{ product_phone.camera }}</p>
+        <p>{{ product_phone.memory }}</p>
+        <p>{{ product_phone.connect }}</p>
+        <p>{{ product_phone.slug }}</p>
+        <p>{{ product_phone.title }}</p>
+        
         {% endfor %}
     {% endfor %}
 

@@ -13,17 +13,22 @@
 </a>
 {% endfor %}
 {% for product_tv in category_tv.tv.all %}
-<p>{{ product_tv.title }}
-    {{ product_tv.slug }}</p>
-
-
-
+<img src="{{ product_tv.image.url }}" alt="">
+<p>{{ product_tv.decimal }}</p>
 <button type="button" class="btn btn-outline-success">
     <form action="{% url 'cart_home_url' %}" method="POST">
         {% csrf_token %}
         Success
     </form>
 </button>
+<p>{{ product_tv.title }}</p>
+<p>{{ product_tv.screen }}</p>
+<p>{{ product_tv.connect }}</p>
+<p>{{ product_tv.size }}</p>
+
+
+
+
 
 
 
